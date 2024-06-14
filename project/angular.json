@@ -34,7 +34,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/scripts/pixel.script.ts"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
