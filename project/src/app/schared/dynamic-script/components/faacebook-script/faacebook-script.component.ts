@@ -42,11 +42,11 @@ export class FaacebookScriptComponent implements OnDestroy {
       text,
       SCRIPT_TYPE,
     );
-    scriptElement.onload = () => {
-      console.log("Google API Script loaded");
+    scriptElement.onload = (data: any) => {
+      console.log("Google API Script loaded", data);
     };
-    scriptElement.onerror = () => {
-      console.log("Could not load the Google API Script!");
+    scriptElement.onerror = (err: any) => {
+      console.log("Could not load the Google API Script!", err);
     };
   }
   /**
