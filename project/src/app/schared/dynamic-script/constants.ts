@@ -1,0 +1,1 @@
+export const FACEBOOK_SCRIPT_PATH = '/assets/scripts/pixel.script.ts';
