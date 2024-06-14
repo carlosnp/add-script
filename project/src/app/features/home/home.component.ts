@@ -1,16 +1,11 @@
 import { Component, OnDestroy } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  selector: 'app-home',
+  templateUrl: './home.component.html',
 })
-export class AppComponent implements OnDestroy {
-  title = 'project';
+export class HomeComponent implements OnDestroy {
   /**
    * Component destroyed stream
    */

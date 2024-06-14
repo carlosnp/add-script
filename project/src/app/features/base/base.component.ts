@@ -1,16 +1,16 @@
 import { Component, OnDestroy } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-base',
+  templateUrl: './base.component.html',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [CommonModule, RouterModule],
+  styleUrl: './base.component.scss',
 })
-export class AppComponent implements OnDestroy {
-  title = 'project';
+export class BaseComponent implements OnDestroy{
   /**
    * Component destroyed stream
    */
