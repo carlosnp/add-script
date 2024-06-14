@@ -10,7 +10,7 @@ const SCRIPT_TYPE = TypeMimeEnum['text/html'];
 
 @Component({
   selector: 'app-faacebook-script',
-  templateUrl: './faacebook-script.component.html',
+  template: ''
 })
 export class FaacebookScriptComponent implements OnDestroy {
   /**
