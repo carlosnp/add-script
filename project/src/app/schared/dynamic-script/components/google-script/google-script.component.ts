@@ -1,18 +1,18 @@
 import { AfterViewInit, Component, Input, OnDestroy, Renderer2 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DynamicScriptSandboxService } from '../../dynamic-script-sandbox.service';
-import { pixelScript } from '../../../../../assets';
+import { googleScript } from '../../../../../assets';
 import { TypeMimeEnum } from '../../models';
-import { FACEBOOK_SCRIPT_PATH } from '../../constants';
+import { GOOGLE_SCRIPT_PATH } from '../../constants';
 
-const SCRIPT_PATH = FACEBOOK_SCRIPT_PATH;
+const SCRIPT_PATH = GOOGLE_SCRIPT_PATH;
 const SCRIPT_TYPE = TypeMimeEnum['text/html'];
 
 @Component({
-  selector: 'app-faacebook-script',
-  template: '<div [id]="facebookId"></div>'
+  selector: 'app-google-script',
+  template: '<div [id]="googleId"></div>',
 })
-export class FaacebookScriptComponent implements OnDestroy, AfterViewInit {
+export class GoogleScriptComponent implements OnDestroy, AfterViewInit{
   /**
    * Component destroyed stream
    */
@@ -21,12 +21,7 @@ export class FaacebookScriptComponent implements OnDestroy, AfterViewInit {
    * Id de facebook
    */
   @Input()
-  facebookId: string = '';
-  /**
-   * Lista de eventos
-   */
-  @Input()
-  events: string[] = ['PageView'];
+  googleId: string = '';
   /**
    * Constructor del componente
    * @param renderer 
@@ -40,7 +35,7 @@ export class FaacebookScriptComponent implements OnDestroy, AfterViewInit {
    * Despues de iniciar la vista
    */
   ngAfterViewInit() {
-    const text = pixelScript(this.facebookId, this.events);
+    const text = googleScript(this.googleId);
     const scriptElement = this.sandbox.loadScript(
       this.renderer,
       SCRIPT_PATH,

@@ -1,4 +1,20 @@
-export const pixelScript = (facebookId: string) => {
+/**
+ * Agrega codigos de eventos
+ */
+const addEvents = (events: string[]) => {
+  const filtered = events.filter( event => !!event);
+  const newEvents = filtered.map(event => {
+    return `fbq('track', ${event});`
+  });
+  return newEvents.join('\n');
+}
+/**
+ * Script de pixel
+ * @param facebookId 
+ * @param events 
+ * @returns 
+ */
+export const pixelScript = (facebookId: string, events: string[] = ['PageView']) => {
   return `
   <script>
     !function (f, b, e, v, n, t, s) {
@@ -13,7 +29,7 @@ export const pixelScript = (facebookId: string) => {
     }(window, document, 'script',
       'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', ${facebookId});
-    fbq('track', 'PageView');
+    ${addEvents(events)}
   </script>
   <noscript><img height="1" width="1" style="display:none"
     [src]="https://www.facebook.com/tr?id=${facebookId}&ev=PageView&noscript=1"
